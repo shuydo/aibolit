@@ -1,0 +1,342 @@
+//wpack & scss compiller???
+//all svg in sprite in end html ???
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+
+$brown: #59443f;
+$light-brown: #c3b9b5;
+$dark: #080606;
+$white: #fff;
+$orange: #ffc59e;
+$counter-bg: #f8f8f8;
+
+* {
+  padding: 0; 
+  margin: 0;
+}
+// --------- SVG -------------
+.grid__svg {
+  width: 110px;
+  height: 110px;
+  fill: $orange;
+
+  &:hover {
+    fill: $brown;
+  }
+
+  &-05 {
+    stroke: $orange;
+
+    &:hover {
+      stroke: $brown;
+    }
+  }
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.container {
+  max-width: 1350px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; // max-width: 1350px; padding: 0 15px;
+  margin: 85px auto 113px;
+
+  &__logo {
+    background-image: url(../images/logo.svg);
+    background-repeat: no-repeat;
+    background-size: cover; // background: url(../images/logo.svg) no-repeat cover;//?????????
+    width: 79px;
+    height: 62px;
+  }
+
+  &__list {
+    display: flex;
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  &__item {
+    margin: 0 35px;
+  }
+
+  &__link {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $light-brown;
+    transition: 0.2s;
+
+    &:hover {
+      color: $orange;
+    }
+  }
+
+  &__btn {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $orange;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: "";
+      background-image: url(../images/geo.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 20px; //20
+      height: 29px;
+      display: block;
+      padding: 0;
+      margin-right: 19px; // outline: 1px solid red;
+    }
+  }
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__title {
+    font-size: 80px;
+    font-weight: 400;
+    line-height: calc(110 / 80); //1.5
+    color: $dark;
+    margin-bottom: 71px;
+  }
+
+  &__link {
+    background-color: $orange;
+    box-shadow: 0 4px 20px $orange;
+    font-weight: 700;
+    font-size: 20px;
+    color: $white;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 19px 76px;
+    border-radius: 33.5px;
+    transition: 0.2s;
+
+    &:hover {
+      box-shadow: 0 4px 20px $brown;
+    }
+  }
+
+  &__social {
+    margin-top: 216px;
+  }
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  padding-left: 0;
+
+  &__item:not(:last-child) {
+    margin-right: 50px;
+  }
+
+  &__svg {
+    fill: $light-brown;
+    vertical-align: bottom;
+    transition: 0.2s;
+
+    &:hover {
+      fill: $brown;
+    }
+
+    &_white {
+      fill: $white;
+      transition: 0.2s;
+
+      &:hover {
+        fill: $light-brown;
+      }
+    }
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px; // margin: 150px 0; при объединении классов у одного эл-та такое правило влияет на уст-ки container
+  padding-top: 150px;
+  margin-bottom: 157px;
+
+  &__item {
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 220px;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+  }
+
+  &__title {
+    color: $brown;
+    font-size: 30px;
+    font-weight: 400;
+    margin: 0; //??
+  }
+
+  &__text {
+    color: $brown;
+    font-size: 20px;
+    margin: 0; //??
+  }
+
+  &__svg {
+    fill: $orange;
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+  }
+}
+
+.counter {
+  text-align: center;
+  background-color: $counter-bg;
+  padding-top: 200px;
+  padding-bottom: 273px;
+  position: relative;
+
+  &__title {
+    color: $brown;
+    font-weight: 700;
+    font-size: 144px;
+    margin-top: 0; //??????????
+    margin-bottom: 0;
+  }
+
+  &__text {
+    color: $dark;
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 1.4;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  &__img {
+    position: absolute;
+    right: 10%;
+    top: 145px;
+  }
+}
+
+.app {
+  background-color: $orange;
+  color: $white;
+  padding-top: 175px;
+  padding-bottom: 115px;
+
+  &__box {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__text {
+    flex-basis: 600px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 1.4;
+    // margin-top: 126px;
+    // margin-bottom: 39px;
+  }
+
+  &__image {
+    position: relative;
+  }
+
+  &__rabbit {
+    position: absolute;
+
+    z-index: 1;
+    max-width: 363px;
+    bottom: 15px;
+    left: -260px;
+  }
+
+  &__screen {
+    position: relative;
+    z-index: 2;
+    max-width: 367px;
+  }
+}
+
+.download {
+  display: flex;
+  align-items: center;
+
+  &__link {
+    background-repeat: no-repeat;
+    background-size: cover; // contain; //cover
+    border-radius: 5px;
+    width: 167px;
+    height: 49px;
+    display: block;
+
+    &:hover {
+      box-shadow: 0 4px 20px $brown;
+    }
+
+    &_xs {
+      width: 140px;
+      height: 41px;
+
+      &:hover {
+        // border-radius: 10px;
+        box-shadow: 0 4px 20px $white;
+      }
+    }
+  }
+
+  &__appstore {
+    background-image: url(../images/appstore.svg);
+    margin-right: 28px;
+  }
+
+  &__googleplay {
+    background-image: url(../images/googleplay.png);
+  }
+}
+
+.footer {
+  background-color: $brown; // padding-top: 80px  // padding-bottom: 80px;
+  padding: 80px 0;
+
+  &__box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1350px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+
+  &__logo {
+    background-image: url(../images/logo-footer.svg);
+    background-repeat: no-repeat; // background-size: cover;
+    width: 340px;
+    height: 90px; // display: block;
+  }
+}
