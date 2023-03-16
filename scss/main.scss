@@ -1,6 +1,5 @@
 //wpack & scss compiller???
-//all svg in sprite in end html ???
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap);
 
 $brown: #59443f;
 $light-brown: #c3b9b5;
@@ -8,32 +7,18 @@ $dark: #080606;
 $white: #fff;
 $orange: #ffc59e;
 $counter-bg: #f8f8f8;
+$clr-border-gal-item: #c3b9b5;
+$shadow-rgba: rgba(0, 0, 0, 0.1);
+
+$trans-time: 0.2s;
 
 * {
-  padding: 0; 
+  padding: 0;
   margin: 0;
-}
-// --------- SVG -------------
-.grid__svg {
-  width: 110px;
-  height: 110px;
-  fill: $orange;
-
-  &:hover {
-    fill: $brown;
-  }
-
-  &-05 {
-    stroke: $orange;
-
-    &:hover {
-      stroke: $brown;
-    }
-  }
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: Open Sans, sans-serif;
 }
 
 .container {
@@ -42,6 +27,40 @@ body {
   margin: 0 auto;
 }
 
+.social {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  padding-left: 0;
+
+  &__item:not(:last-child) {
+    margin-right: 50px;
+  }
+
+  &__svg {
+    width: 40px;
+    height: 40px;
+    fill: $light-brown;
+    vertical-align: bottom;
+    transition: $trans-time;
+
+    &:hover {
+      fill: $brown;
+    }
+
+    &_white {
+      fill: $white;
+      transition: $trans-time;
+
+      &:hover {
+        fill: $light-brown;
+      }
+    }
+  }
+}
+
+// ====================================
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -49,9 +68,7 @@ body {
   margin: 85px auto 113px;
 
   &__logo {
-    background-image: url(../images/logo.svg);
-    background-repeat: no-repeat;
-    background-size: cover; // background: url(../images/logo.svg) no-repeat cover;//?????????
+    background: top / contain no-repeat url(../images/logo.svg); // background-image: url(../images/logo.svg);background-repeat: no-repeat;background-size: cover;
     width: 79px;
     height: 62px;
   }
@@ -72,7 +89,7 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     color: $light-brown;
-    transition: 0.2s;
+    transition: $trans-time;
 
     &:hover {
       color: $orange;
@@ -98,7 +115,7 @@ body {
       height: 29px;
       display: block;
       padding: 0;
-      margin-right: 19px; // outline: 1px solid red;
+      margin-right: 19px;
     }
   }
 }
@@ -126,7 +143,7 @@ body {
     text-decoration: none;
     padding: 19px 76px;
     border-radius: 33.5px;
-    transition: 0.2s;
+    transition: $trans-time;
 
     &:hover {
       box-shadow: 0 4px 20px $brown;
@@ -135,36 +152,6 @@ body {
 
   &__social {
     margin-top: 216px;
-  }
-}
-
-.social {
-  display: flex;
-  align-items: center;
-  list-style-type: none;
-  padding-left: 0;
-
-  &__item:not(:last-child) {
-    margin-right: 50px;
-  }
-
-  &__svg {
-    fill: $light-brown;
-    vertical-align: bottom;
-    transition: 0.2s;
-
-    &:hover {
-      fill: $brown;
-    }
-
-    &_white {
-      fill: $white;
-      transition: 0.2s;
-
-      &:hover {
-        fill: $light-brown;
-      }
-    }
   }
 }
 
@@ -184,14 +171,31 @@ body {
     height: 220px;
     position: relative;
     border-radius: 20px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 10px $shadow-rgba;
     padding: 24px;
+    outline: 1px solid $white;
+    transition: $trans-time;
+
+    &:hover {
+      outline: 1px solid $clr-border-gal-item;
+
+      & .grid__svg {
+        fill: $brown;
+
+        &-05 {
+          &:hover {
+            stroke: $brown;
+          }
+        }
+      }
+    }
   }
 
   &__title {
-    color: $brown;
+    font-family: serif;
     font-size: 30px;
     font-weight: 400;
+    color: $brown;
     margin: 0; //??
   }
 
@@ -202,10 +206,17 @@ body {
   }
 
   &__svg {
+    width: 110px;
+    height: 110px;
     fill: $orange;
     position: absolute;
     bottom: 24px;
     right: 24px;
+    transition: $trans-time;
+
+    &-05 {
+      stroke: $orange;
+    }
   }
 }
 
@@ -220,7 +231,7 @@ body {
     color: $brown;
     font-weight: 700;
     font-size: 144px;
-    margin-top: 0; //??????????
+    margin-top: 0; //
     margin-bottom: 0;
   }
 
@@ -235,8 +246,8 @@ body {
 
   &__img {
     position: absolute;
-    right: 10%;
-    top: 145px;
+    right: 15%;
+    top: 30px;
   }
 }
 
@@ -258,9 +269,7 @@ body {
   &__title {
     font-weight: 700;
     font-size: 80px;
-    line-height: 1.4;
-    // margin-top: 126px;
-    // margin-bottom: 39px;
+    line-height: 1.4; // margin-top: 126px;margin-bottom: 39px;
   }
 
   &__image {
@@ -289,7 +298,7 @@ body {
 
   &__link {
     background-repeat: no-repeat;
-    background-size: cover; // contain; //cover
+    background-size: cover; // contain cover
     border-radius: 5px;
     width: 167px;
     height: 49px;
@@ -304,8 +313,7 @@ body {
       height: 41px;
 
       &:hover {
-        // border-radius: 10px;
-        box-shadow: 0 4px 20px $white;
+        box-shadow: 0 4px 20px $white; // border-radius: 10px;
       }
     }
   }
@@ -321,7 +329,7 @@ body {
 }
 
 .footer {
-  background-color: $brown; // padding-top: 80px  // padding-bottom: 80px;
+  background-color: $brown; // padding-top: 80px; padding-bottom: 80px;
   padding: 80px 0;
 
   &__box {
